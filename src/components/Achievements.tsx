@@ -4,7 +4,6 @@ import { useRef } from "react";
 import {
   motion,
   useScroll,
-  useSpring,
   useTransform,
   type MotionValue,
 } from "framer-motion";
@@ -84,11 +83,10 @@ export default function Achievements() {
   const d = useDict();
   const ITEMS = d.goals.items;
   const listRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: progress } = useScroll({
     target: listRef,
     offset: ["start 0.7", "end 0.6"],
   });
-  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.5 });
   const pointerTop = useTransform(progress, (v) => `${v * 100}%`);
 
   return (

@@ -144,17 +144,28 @@ section[id] {
   border-radius: 2px;
 }
 
-/* The custom breakpoint cursor replaces the native one on fine pointers
-   only (the class is added by <Cursor/> after mount). Text fields keep the
-   native I-beam so typing stays obvious. */
-html.has-cursor,
-html.has-cursor * {
-  cursor: none !important;
-}
+/* The breakpoint-marker cursor is a real (hardware) cursor image, not a DOM
+   element chasing the pointer: zero latency, zero JS, never loses the pointer.
+   Dark halo + yellow ring + red dot reads on both the dark page and the
+   yellow call-to-action. Only fine pointers (mouse/trackpad) get it. */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2211%22 fill=%22none%22 stroke=%22%23000%22 stroke-opacity=%22.75%22 stroke-width=%224.5%22/%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2211%22 fill=%22none%22 stroke=%22%23ffd60a%22 stroke-width=%222%22/%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%224%22 fill=%22%23ff3b30%22 stroke=%22%23000%22 stroke-opacity=%22.75%22 stroke-width=%221.5%22/%3E%3C/svg%3E") 20 20, auto;
+  }
 
-html.has-cursor input,
-html.has-cursor textarea {
-  cursor: text !important;
+  a,
+  button,
+  [role="button"],
+  summary,
+  select,
+  [data-cursor] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2215%22 fill=%22%23ffd60a%22 fill-opacity=%22.28%22 stroke=%22%23000%22 stroke-opacity=%22.75%22 stroke-width=%224.5%22/%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%2215%22 fill=%22none%22 stroke=%22%23ffd60a%22 stroke-width=%222%22/%3E%3Ccircle cx=%2220%22 cy=%2220%22 r=%224%22 fill=%22%23ff3b30%22 stroke=%22%23000%22 stroke-opacity=%22.75%22 stroke-width=%221.5%22/%3E%3C/svg%3E") 20 20, pointer;
+  }
+
+  input,
+  textarea {
+    cursor: text;
+  }
 }
 
 /* faint film-grain for material depth (plain alpha, no blend modes: blended

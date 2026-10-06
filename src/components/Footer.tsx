@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { useDict } from "@/lib/i18n";
 
@@ -16,7 +16,7 @@ export default function Footer() {
   const labels = [d.nav.about, d.nav.team, d.nav.goals, d.nav.sponsors, d.nav.contact];
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "end end"] });
-  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 26, mass: 0.5 });
+  const fill = scrollYProgress;
   const clipPath = useTransform(fill, (v) => `inset(${(1 - v) * 125 - 25}% -2% -15% -2%)`);
 
   return (

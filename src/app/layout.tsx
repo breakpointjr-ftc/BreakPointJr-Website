@@ -7,7 +7,6 @@ import IntroSplash from "@/components/IntroSplash";
 import SmoothScroll from "@/components/SmoothScroll";
 import GlassField from "@/components/GlassField";
 import ClickFx from "@/components/ClickFx";
-import Cursor from "@/components/Cursor";
 import LangInit from "@/components/LangInit";
 
 const bigShoulders = Big_Shoulders({
@@ -56,7 +55,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       >
         <LangInit />
         <IntroSplash />
-        <Cursor />
         <ClickFx />
         <GlassField />
         <ScrollProgress />

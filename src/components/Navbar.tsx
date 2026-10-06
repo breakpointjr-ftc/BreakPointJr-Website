@@ -56,7 +56,7 @@ export default function Navbar() {
       animate={revealed ? { y: 0, opacity: 1 } : { y: -90, opacity: 0 }}
       transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled || open ? "border-b border-line bg-ink/95 lg:bg-ink/75 lg:backdrop-blur-md" : "border-b border-transparent"
+        scrolled || open ? "border-b border-line bg-ink/90" : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-6 sm:px-10">

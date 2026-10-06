@@ -5,7 +5,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
   type MotionValue,
 } from "framer-motion";
 import { useDict } from "@/lib/i18n";
@@ -59,7 +58,7 @@ function Slice({
     <motion.span
       aria-hidden="true"
       style={{ x, opacity, clipPath: clip }}
-      className="absolute inset-0 flex items-center justify-center px-4"
+      className="will-change-transform absolute inset-0 flex items-center justify-center px-4"
     >
       {children}
     </motion.span>
@@ -116,17 +115,9 @@ export default function MadeForCycle() {
   const d = useDict();
   const WORDS = d.cycle.words;
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: rawProgress } = useScroll({
+  const { scrollYProgress: progress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
-  });
-
-  // A spring smooths the raw scroll value so the slices glide instead of
-  // jumping with every wheel tick.
-  const progress = useSpring(rawProgress, {
-    stiffness: 260,
-    damping: 38,
-    mass: 0.4,
   });
 
   return (

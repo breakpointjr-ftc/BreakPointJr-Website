@@ -40,8 +40,12 @@ export default function SmoothScroll({
     <ReactLenis
       root
       options={{
-        duration: 1.1,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        // lerp easing is frame-rate independent: the scroll position glides a
+        // fixed fraction of the remaining distance every frame, which is what
+        // gives the long, soft "butter" tail on 60/120/144 Hz screens alike.
+        lerp: 0.085,
+        smoothWheel: true,
+        wheelMultiplier: 1,
         // Sections already declare `scroll-margin-top: 88px` in CSS,
         // which Lenis's anchor handling honors on its own — an explicit
         // offset here would double up and overshoot past the header.

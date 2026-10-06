@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform, type MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useDict } from "@/lib/i18n";
 
@@ -25,17 +25,12 @@ function ScrubWord({
 }) {
   const start = index / total;
   const end = Math.min(1, start + 3.2 / total);
-  const color = useTransform(
-    progress,
-    [start, end],
-    ["rgba(244,244,241,0.14)", hot ? "#ffd60a" : "#f4f4f1"],
-    { clamp: true }
-  );
+  const opacity = useTransform(progress, [start, end], [0.16, 1], { clamp: true });
   return (
     <motion.span
       lang={/breakpoint/i.test(children) ? "en" : undefined}
-      style={{ color }}
-      className="mr-[0.28em] inline-block"
+      style={{ opacity }}
+      className={`mr-[0.28em] inline-block will-change-[opacity] ${hot ? "text-accent" : "text-ivory"}`}
     >
       {children}
     </motion.span>
@@ -46,11 +41,10 @@ export default function About() {
   const d = useDict();
   const TOKENS = tokenize(d.about.manifesto);
   const textRef = useRef<HTMLParagraphElement>(null);
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress: progress } = useScroll({
     target: textRef,
     offset: ["start 0.82", "end 0.45"],
   });
-  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40, mass: 0.4 });
 
   return (
     <section id="hakkimizda" className="relative py-20 sm:py-28">
