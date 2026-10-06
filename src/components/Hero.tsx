@@ -109,7 +109,7 @@ export default function Hero() {
       id="top"
       onPointerMove={onMove}
       onPointerLeave={onLeave}
-      className="relative flex min-h-[100svh] items-center overflow-hidden pb-20 pt-32"
+      className="min-h-screen-safe relative flex items-center overflow-hidden pb-20 pt-32"
     >
       <motion.div
         initial="hidden"

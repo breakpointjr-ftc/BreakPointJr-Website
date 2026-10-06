@@ -43,7 +43,8 @@ export default function ClickFx() {
     let last = 0;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (w && window.innerWidth === w && Math.abs(window.innerHeight - h) < 160) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.5 : 2);
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.width = Math.round(w * dpr);

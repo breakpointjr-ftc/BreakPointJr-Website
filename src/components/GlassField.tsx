@@ -32,7 +32,7 @@ export default function GlassField() {
     let lastMove = 0;
 
     const build = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 700 ? 1.5 : 2);
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.width = Math.round(w * dpr);
@@ -180,6 +180,9 @@ export default function GlassField() {
 
     let resizeTimer = 0;
     const onResize = () => {
+      // mobile browsers fire resize when the URL bar slides away: ignore
+      // small height-only changes instead of rebuilding the whole mesh
+      if (window.innerWidth === w && Math.abs(window.innerHeight - h) < 160) return;
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(() => {
         build();

@@ -13,7 +13,6 @@ import LangInit from "@/components/LangInit";
 const bigShoulders = Big_Shoulders({
   variable: "--font-display",
   subsets: ["latin", "latin-ext"],
-  weight: ["700", "800", "900"],
   adjustFontFallback: false,
   fallback: ["system-ui", "sans-serif"],
 });
@@ -21,13 +20,11 @@ const bigShoulders = Big_Shoulders({
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {

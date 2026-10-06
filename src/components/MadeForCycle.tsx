@@ -132,10 +132,10 @@ export default function MadeForCycle() {
   return (
     <section
       ref={ref}
-      style={{ height: `${WORDS.length * VH_PER_WORD}svh` }}
-      className="relative"
+      style={{ "--pin-vh": WORDS.length * VH_PER_WORD } as React.CSSProperties}
+      className="pin-height relative"
     >
-      <div className="sticky top-0 flex h-[100svh] flex-col items-center justify-center overflow-hidden">
+      <div className="h-screen-safe sticky top-0 flex flex-col items-center justify-center overflow-hidden">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -43,9 +43,9 @@ function ShardArt({ seed }: { seed: number }) {
         tris.push({
           pts: t.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" "),
           fill: roll > 0.86 ? "#ffd60a" : roll > 0.78 ? "#f6f6f2" : "#ffd60a",
-          o: roll > 0.86 ? 0.9 : roll > 0.78 ? 0.35 : 0.05 + rnd() * 0.2,
-          tx: (dx / len) * (6 + rnd() * 8),
-          ty: (dy / len) * (6 + rnd() * 8),
+          o: roll > 0.86 ? 0.9 : roll > 0.78 ? 0.35 : Math.round((0.05 + rnd() * 0.2) * 1000) / 1000,
+          tx: Math.round((dx / len) * (6 + rnd() * 8) * 100) / 100,
+          ty: Math.round((dy / len) * (6 + rnd() * 8) * 100) / 100,
         });
       }
     }

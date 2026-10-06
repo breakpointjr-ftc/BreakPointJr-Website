@@ -42,6 +42,23 @@
   --font-mono: var(--font-mono);
 }
 
+/* 100svh (stable height with mobile browser bars) with a plain-vh fallback for
+   older iOS/Android WebViews that don't know svh yet. */
+.min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.h-screen-safe {
+  height: 100vh;
+  height: 100svh;
+}
+
+.pin-height {
+  height: calc(var(--pin-vh) * 1vh);
+  height: calc(var(--pin-vh) * 1svh);
+}
+
 /* in the base layer so border-color utilities (border-accent, border-ink…)
    can still win over this default */
 @layer base {
@@ -72,6 +89,15 @@ html {
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* Sections slide content in from off-screen (x offsets, rotated bands). iOS
+   Safari shrinks the whole page to fit anything that pokes past the screen, so
+   every section clips its own horizontal overflow (clip, unlike hidden, keeps
+   sticky positioning working). */
+main,
+footer {
+  overflow-x: clip;
 }
 
 body {
