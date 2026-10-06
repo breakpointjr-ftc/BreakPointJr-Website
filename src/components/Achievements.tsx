@@ -106,7 +106,7 @@ export default function Achievements() {
             <motion.div style={{ scaleY: progress }} className="h-full w-full origin-top bg-accent shadow-[0_0_18px_2px_rgba(255,214,10,0.55)]" />
             <motion.div
               style={{ top: pointerTop }}
-              className="absolute left-0 -translate-y-1/2 md:left-1/2 md:-translate-x-1/2"
+              className="absolute left-0 hidden -translate-y-1/2 md:left-1/2 md:block md:-translate-x-1/2"
             >
               <span className="mono-tag flex items-center gap-2 whitespace-nowrap bg-accent px-2 py-1 text-[10px] font-semibold uppercase text-ink">
                 {d.goals.now}

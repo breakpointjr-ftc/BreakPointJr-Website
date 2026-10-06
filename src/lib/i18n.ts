@@ -93,6 +93,7 @@ const tr = {
     meet: "Takımı Tanı",
     sponsor: "Sponsor Ol",
     hint: "Yazıya tıkla",
+    hintTouch: "Yazıya dokun",
   },
   marquee: ["KIR", "ÖĞREN", "İNŞA ET", "TEKRARLA"],
   cycle: {
@@ -284,6 +285,7 @@ const en: Dict = {
     meet: "Meet the Team",
     sponsor: "Sponsor Us",
     hint: "Click the word",
+    hintTouch: "Tap the word",
   },
   marquee: ["BREAK", "LEARN", "BUILD", "REPEAT"],
   cycle: {

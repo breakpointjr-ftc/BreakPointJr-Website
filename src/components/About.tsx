@@ -96,7 +96,7 @@ export default function About() {
                   <h3 className="font-display text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-tight text-ivory transition-colors duration-300 group-hover:text-ink group-focus:text-ink">
                     {p.title}
                   </h3>
-                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus:grid-rows-[1fr]">
+                  <div className="grid grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out md:grid-rows-[0fr] md:group-hover:grid-rows-[1fr] md:group-focus:grid-rows-[1fr] [@media(hover:none)]:!grid-rows-[1fr]">
                     <div className="overflow-hidden">
                       <p className="max-w-xl pt-4 text-base leading-relaxed text-text-dim transition-colors duration-300 group-hover:text-ink/80 group-focus:text-ink/80 sm:text-lg">
                         {p.desc}

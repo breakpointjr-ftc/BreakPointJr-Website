@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import BrandMark from "./BrandMark";
 import { setIntroPhase } from "@/lib/intro";
@@ -31,10 +31,10 @@ type Shard = {
   duration: number;
 };
 
-function buildShards(): Shard[] {
+function buildShards(compact: boolean): Shard[] {
   const rnd = mulberry32(11);
-  const C = 9;
-  const R = 6;
+  const C = compact ? 6 : 9;
+  const R = compact ? 5 : 6;
   const g: { x: number; y: number }[][] = [];
   for (let r = 0; r <= R; r++) {
     const row: { x: number; y: number }[] = [];
@@ -87,7 +87,7 @@ export default function IntroSplash() {
   const [progress, setProgress] = useState(0);
   const d = useDict();
   const startRef = useRef(0);
-  const shards = useMemo(() => buildShards(), []);
+  const [shards, setShards] = useState<Shard[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -109,6 +109,7 @@ export default function IntroSplash() {
 
     const goShatter = () => {
       if (cancelled) return;
+      setShards(buildShards(window.innerWidth < 700));
       setPhase("shatter");
       setIntroPhase("revealing");
       timers.push(window.setTimeout(finish, SHATTER_MS));

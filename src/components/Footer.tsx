@@ -38,13 +38,13 @@ export default function Footer() {
 
         <div>
           <p className="mono-tag text-[11px] uppercase text-text-faint">{d.footer.pages}</p>
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-3">
             {HREFS.map((href, i) => (
               <li key={href}>
                 <a
                   href={href}
                   data-cursor={d.cur.go}
-                  className="underline-fade font-display text-xl font-bold uppercase text-text-dim transition-colors hover:text-ivory"
+                  className="underline-fade inline-block py-2 font-display text-xl font-bold uppercase text-text-dim transition-colors hover:text-ivory"
                 >
                   {labels[i]}
                 </a>
@@ -59,7 +59,7 @@ export default function Footer() {
             <li>
               <a
                 href="mailto:breakpointjr.ftc@gmail.com"
-                className="underline-fade transition-colors hover:text-ivory"
+                className="underline-fade inline-block py-2 transition-colors hover:text-ivory"
               >
                 breakpointjr.ftc@gmail.com
               </a>

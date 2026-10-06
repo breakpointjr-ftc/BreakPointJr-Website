@@ -56,7 +56,7 @@ export default function Navbar() {
       animate={revealed ? { y: 0, opacity: 1 } : { y: -90, opacity: 0 }}
       transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled || open ? "border-b border-line bg-ink/75 backdrop-blur-md" : "border-b border-transparent"
+        scrolled || open ? "border-b border-line bg-ink/95 lg:bg-ink/75 lg:backdrop-blur-md" : "border-b border-transparent"
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-6 sm:px-10">
@@ -69,7 +69,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-10 lg:flex">
           {LINKS.map((link, i) => (
             <a
               key={link.href}
@@ -87,7 +87,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <LangSwitch />
           <a
             href="#iletisim"
@@ -100,7 +100,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden"
+          className="relative z-10 flex h-11 w-11 flex-col items-center justify-center gap-[6px] lg:hidden"
           aria-label={d.nav.menu}
           aria-expanded={open}
         >
@@ -117,7 +117,7 @@ export default function Navbar() {
             animate={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             exit={{ clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" }}
             transition={{ duration: 0.5, ease: [0.7, 0, 0.2, 1] }}
-            className="absolute left-0 top-0 -z-10 flex h-[100svh] w-full flex-col justify-center gap-2 bg-ink px-6 pt-20 md:hidden"
+            className="absolute left-0 top-0 -z-10 flex h-[100svh] w-full flex-col justify-center gap-2 bg-ink px-6 pt-20 lg:hidden"
           >
             {LINKS.map((link, i) => (
               <motion.a
@@ -133,7 +133,7 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            <LangSwitch className="mt-8 self-start" />
+            <LangSwitch className="mt-8 self-start [&>button]:px-5 [&>button]:py-3" />
           </motion.div>
         )}
       </AnimatePresence>

@@ -231,9 +231,10 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ delay: 1.6, duration: 0.8 }}
-        className="mono-tag pointer-events-none absolute bottom-6 right-6 hidden items-center gap-3 text-[10px] uppercase text-text-faint sm:flex sm:right-10"
+        className="mono-tag pointer-events-none absolute bottom-6 right-6 flex items-center gap-3 text-[10px] uppercase text-text-faint sm:right-10"
       >
-        {d.hero.hint}
+        <span className="[@media(hover:none)]:hidden">{d.hero.hint}</span>
+        <span className="hidden [@media(hover:none)]:inline">{d.hero.hintTouch}</span>
         <span className="relative block h-10 w-px overflow-hidden bg-line">
           <motion.span
             animate={{ y: ["-100%", "100%"] }}

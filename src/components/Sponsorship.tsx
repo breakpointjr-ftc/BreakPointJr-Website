@@ -75,7 +75,7 @@ function TierCard({ tier, index, d }: { tier: Dict["sponsor"]["tiers"][number]; 
           </ul>
           <a
             href="#iletisim"
-            className="mt-9 inline-flex w-fit items-center gap-2 border-b border-ivory/30 pb-1 font-display text-lg font-extrabold uppercase tracking-wide text-ivory transition-colors hover:border-accent hover:text-accent"
+            className="mt-7 inline-flex min-h-11 w-fit items-center gap-2 border-b border-ivory/30 pb-1 font-display text-lg font-extrabold uppercase tracking-wide text-ivory transition-colors hover:border-accent hover:text-accent"
           >
             {d.sponsor.contactLink}
             <ArrowUpRight size={18} />

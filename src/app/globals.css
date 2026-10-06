@@ -68,7 +68,16 @@ html.lenis-stopped {
   overflow: hidden;
 }
 
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
+  /* `clip` (unlike `hidden`) never creates a scroll container, so sticky
+     sections keep working while stray overflow can't scroll sideways */
+  overflow-x: clip;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
